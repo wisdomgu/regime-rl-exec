@@ -74,6 +74,16 @@ presents experimental results across all three agent variants. Section 5
 discusses implications and limitations. Section 6 concludes with directions 
 for future work.
 
+These findings have direct implications for the growing literature on 
+hierarchical RL for execution. Papers such as TradeR, EarnHFT, and HRT 
+propose hierarchical architectures that implicitly assume flat RL is 
+insufficient for regime-aware execution, but none empirically verify this 
+assumption or diagnose why flat RL fails. Our work provides this missing 
+foundation: we show that the failure is not due to lack of regime information 
+(which we explicitly provide) but due to the inability of standard policy 
+gradient methods to stably exploit that information. This supports hierarchy 
+not as a heuristic design choice but as a structural necessity.
+
 **Contributions:**
 1. We implement the CTMSTOU simulation environment from Amrouni et al. (2022) 
    as a Gymnasium-compatible framework for RL training, making the environment 
@@ -87,6 +97,11 @@ for future work.
 4. We show through perturbation analysis that regime sensitivity is 
    initialization-dependent, identifying training instability as a key 
    challenge for regime-aware RL execution.
+
+To the best of our knowledge, no prior work has conducted a controlled 
+ablation study isolating the effect of regime information on flat RL 
+execution agents, nor empirically diagnosed why such agents fail to 
+exploit regime signals despite having access to them.
 
 ---
 
@@ -168,6 +183,32 @@ training without the sensitivity to hyperparameters that characterizes
 earlier policy gradient methods. Its robustness and strong empirical 
 performance across continuous control tasks make it a natural choice for 
 the execution problem.
+
+### 2.4 Hierarchical RL for Execution
+
+Several recent works propose hierarchical architectures for trade execution, 
+motivating their design by the complexity of market dynamics. TradeR 
+(cite) introduces a two-level hierarchy with separate order and bid policies, 
+demonstrating improved robustness during market crashes, but does not model 
+market regimes or test whether flat RL could succeed with better information. 
+EarnHFT (cite) explicitly trains separate agents for different market trends 
+with a router selecting between them — the closest prior work to our setting. 
+However, EarnHFT assumes that different regimes require different agents 
+without testing whether a single agent with regime information could adapt. 
+Our paper fills this gap: we show empirically that a single flat agent cannot 
+reliably exploit regime information, providing the controlled evidence that 
+justifies EarnHFT's architectural choice. The hierarchical VWAP optimizer of 
+(cite) and HRT (cite) similarly motivate hierarchy through problem complexity 
+without diagnosing flat RL failure. Our findings unify these motivations under 
+a single empirical observation: the limitation is structural, not informational.
+
+Xu et al. (2025) propose a Mixture-of-Experts framework using preference 
+optimization to mix deterministic strategies across market regimes, 
+demonstrating that regime-adaptive mixtures outperform fixed schedules. 
+However, their work assumes regime-specific experts must be manually 
+designed and does not test whether a single flat agent can learn 
+regime-conditioned behavior from state information alone. Our work 
+provides this missing baseline.
 
 ---
 
@@ -400,13 +441,20 @@ procedure does not reliably converge to the regime-sensitive optimum.
 
 ## 5. Discussion
 
-Our results reveal a fundamental tension between learning to complete orders 
-and learning to exploit market structure. PPO agents reliably solve the 
-completion problem — the strong incompletion penalty in the reward function 
-ensures near-perfect execution rates across all seeds and conditions. However, 
-this same reward structure may actively prevent the agent from learning 
-regime-conditioned behavior, because steady execution is a robust local 
-optimum: it guarantees completion with moderate cost, regardless of regime.
+Our results reveal that the failure of regime-aware flat RL is not an 
+information problem but a structural one. Providing the regime label 
+explicitly in the state — the most direct possible form of regime information 
+— does not produce reliable regime-conditioned behavior. This finding has 
+direct implications for the hierarchical RL literature: papers such as 
+EarnHFT, TradeR, and HRT propose hierarchical architectures for regime-aware 
+execution without empirically establishing why simpler approaches fail. Our 
+controlled ablation provides this missing justification. The agent observes 
+the regime, can in principle condition its policy on it, but the PPO 
+optimization landscape contains multiple local optima with different degrees 
+of regime exploitation — and standard training does not reliably find the 
+regime-sensitive optimum. Hierarchy addresses this by hard-coding the 
+regime-conditioning structure rather than expecting the optimizer to discover 
+it.
 
 The hand-coded regime-aware rule succeeds precisely because it encodes 
 domain knowledge that is difficult to learn from reward alone. Knowing that 
