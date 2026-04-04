@@ -1,7 +1,3 @@
-/mnt/Users/rajee/OneDrive/Desktop/Zyir/Projects/ResearchPaper/venv/lib/python3.9/site-packages/gymnasium/spaces/box.py:235: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
-  gym.logger.warn(
-/mnt/Users/rajee/OneDrive/Desktop/Zyir/Projects/ResearchPaper/venv/lib/python3.9/site-packages/gymnasium/spaces/box.py:305: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
-  gym.logger.warn(
 Done. Switches: 1, Final price: 123610.76
 Bull time: 86.5%, Bear time: 13.5%
 Plot saved to ctmstou_test.png
@@ -5385,10 +5381,7 @@ Using cpu device
 |    std                  | 0.157       |
 |    value_loss           | 4.74e-07    |
 -----------------------------------------
-/mnt/Users/rajee/OneDrive/Desktop/Zyir/Projects/ResearchPaper/venv/lib/python3.9/site-packages/gymnasium/spaces/box.py:235: UserWarning: [33mWARN: Box low's precision lowered by casting to float32, current low.dtype=float64[0m
-  gym.logger.warn(
-/mnt/Users/rajee/OneDrive/Desktop/Zyir/Projects/ResearchPaper/venv/lib/python3.9/site-packages/gymnasium/spaces/box.py:305: UserWarning: [33mWARN: Box high's precision lowered by casting to float32, current high.dtype=float64[0m
-  gym.logger.warn(
+
 Saved ppo_regime_aware.zip
 
 Evaluating regime_aware agent over 100 episodes...

@@ -1,0 +1,179 @@
+Done. Switches: 1, Final price: 123610.76
+Bull time: 86.5%, Bear time: 13.5%
+Plot saved to ctmstou_test.png
+
+=== HYPERPARAMETER SENSITIVITY ===
+
+Seed 1/5 — regime_aware (100000 steps)
+
+Training regime_aware agent (seed=0, steps=100000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 2/5 — regime_aware (100000 steps)
+
+Training regime_aware agent (seed=1, steps=100000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 3/5 — regime_aware (100000 steps)
+
+Training regime_aware agent (seed=2, steps=100000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 4/5 — regime_aware (100000 steps)
+
+Training regime_aware agent (seed=3, steps=100000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 0.999
+
+Seed 5/5 — regime_aware (100000 steps)
+
+Training regime_aware agent (seed=4, steps=100000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+regime_aware — 100000 steps — across 5 seeds:
+  WAP:  1.0003 ± 0.0000
+  Comp: 0.9998 ± 0.0005
+
+Seed 1/5 — regime_aware (200000 steps)
+
+Training regime_aware agent (seed=0, steps=200000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 2/5 — regime_aware (200000 steps)
+
+Training regime_aware agent (seed=1, steps=200000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 3/5 — regime_aware (200000 steps)
+
+Training regime_aware agent (seed=2, steps=200000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 4/5 — regime_aware (200000 steps)
+
+Training regime_aware agent (seed=3, steps=200000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 5/5 — regime_aware (200000 steps)
+
+Training regime_aware agent (seed=4, steps=200000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+regime_aware — 200000 steps — across 5 seeds:
+  WAP:  1.0003 ± 0.0000
+  Comp: 1.0000 ± 0.0000
+
+Seed 1/5 — regime_aware (500000 steps)
+
+Training regime_aware agent (seed=0, steps=500000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0005 | Completion: 1.000
+
+Seed 2/5 — regime_aware (500000 steps)
+
+Training regime_aware agent (seed=1, steps=500000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 3/5 — regime_aware (500000 steps)
+
+Training regime_aware agent (seed=2, steps=500000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0004 | Completion: 1.000
+
+Seed 4/5 — regime_aware (500000 steps)
+
+Training regime_aware agent (seed=3, steps=500000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 5/5 — regime_aware (500000 steps)
+
+Training regime_aware agent (seed=4, steps=500000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0004 | Completion: 1.000
+
+regime_aware — 500000 steps — across 5 seeds:
+  WAP:  1.0004 ± 0.0001
+  Comp: 1.0000 ± 0.0000
+
+=== LEARNING CURVES ===
+
+Seed 1/5 — regime_aware (500000 steps)
+
+Training regime_aware agent (seed=0, steps=500000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0008 | Completion: 1.000
+
+Seed 2/5 — regime_aware (500000 steps)
+
+Training regime_aware agent (seed=1, steps=500000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 3/5 — regime_aware (500000 steps)
+
+Training regime_aware agent (seed=2, steps=500000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0004 | Completion: 1.000
+
+Seed 4/5 — regime_aware (500000 steps)
+
+Training regime_aware agent (seed=3, steps=500000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0003 | Completion: 0.999
+
+Seed 5/5 — regime_aware (500000 steps)
+
+Training regime_aware agent (seed=4, steps=500000)...
+Valid episodes: 100/100
+regime_aware         | WAP_norm: 1.0005 | Completion: 1.000
+
+regime_aware — 500000 steps — across 5 seeds:
+  WAP:  1.0004 ± 0.0002
+  Comp: 0.9997 ± 0.0006
+
+Seed 1/5 — blind (500000 steps)
+
+Training blind agent (seed=0, steps=500000)...
+Valid episodes: 100/100
+blind                | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 2/5 — blind (500000 steps)
+
+Training blind agent (seed=1, steps=500000)...
+Valid episodes: 100/100
+blind                | WAP_norm: 1.0004 | Completion: 1.000
+
+Seed 3/5 — blind (500000 steps)
+
+Training blind agent (seed=2, steps=500000)...
+Valid episodes: 100/100
+blind                | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 4/5 — blind (500000 steps)
+
+Training blind agent (seed=3, steps=500000)...
+Valid episodes: 100/100
+blind                | WAP_norm: 1.0003 | Completion: 1.000
+
+Seed 5/5 — blind (500000 steps)
+
+Training blind agent (seed=4, steps=500000)...
+Valid episodes: 100/100
+blind                | WAP_norm: 1.0003 | Completion: 1.000
+
+blind — 500000 steps — across 5 seeds:
+  WAP:  1.0003 ± 0.0000
+  Comp: 1.0000 ± 0.0000
+
+Done. Run plot_results.py to generate all figures.

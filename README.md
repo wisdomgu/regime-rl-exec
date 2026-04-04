@@ -33,17 +33,19 @@ does state augmentation alone suffice, or is reward conditioning necessary?
 | PPO reward-conditioned | 1.0069 ± 0.0131 | 0.996 |
 
 ## Structure
-
-├── src/
-│   ├── ctmstou.py        # CTMSTOU market simulator
-│   ├── environment.py    # Gymnasium execution environment
-│   ├── baselines.py      # TWAP, Full MO, Regime-Aware rule
-│   ├── train.py          # PPO training + evaluation
-│   └── plot_results.py   # Figure generation
-├── paper/
-│   ├── draft.md          # Full paper draft
-│   └── figures/          # All paper figures
+```
+├── models/               # Trained PPO models
+├── figures/              # All paper figures
+├── results/              # Raw results
+├── src/                  # All python files
+    ├── ctmstou.py            # CTMSTOU market simulator
+    ├── environment.py        # Gymnasium execution environment
+    ├── baselines.py          # TWAP, Full MO, Regime-Aware rule baselines
+    ├── train.py              # PPO training + multi-seed evaluation
+    ├── plot_results.py       # Figure generation
+    ├── run_curves.py         # Generate learning curves
 └── README.md
+```
 
 ## Setup
 ```bash
@@ -61,13 +63,5 @@ python train.py          # train all RL agents (2-3 hours on CPU)
 python plot_results.py   # generate figures
 ```
 
-## Built On
-
-- Amrouni et al. (2022) — [CTMSTOU driven markets](https://arxiv.org/abs/2202.00941)
-- Schulman et al. (2017) — Proximal Policy Optimization
-- Stable Baselines 3
-
 ## Paper
-
-Full paper draft available in `paper/draft.md`. 
 Preprint forthcoming on arXiv.
