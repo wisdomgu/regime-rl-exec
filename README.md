@@ -23,10 +23,10 @@ agent can learn this regime-conditional behavior automatically.
 
 - RL agents achieve near-perfect order completion (1.000) vs TWAP (0.850)
 - Neither state augmentation nor reward conditioning matches the hand-coded rule on cost (WAP 1.0003 vs 0.9949)
-- The regime-aware agent learns a **near-binary policy**: aggressive in bull markets, completely passive in bear markets — qualitatively wrong
+- The regime-aware agent exhibits highly polarized behavior across regimes, often deviating from the qualitatively optimal strategy.
 - Regime sensitivity is **initialization-dependent**; single seeds show extreme sensitivity (action 0.92→0.00 on regime flip) while multi-seed average shows near-zero sensitivity
 - Reward conditioning introduces training instability (WAP std 0.0131) without gains
-- Hyperparameter sensitivity analysis confirms the gap persists regardless of training budget — the failure is structural, not a matter of sample efficiency
+- Hyperparameter sensitivity analysis confirms the gap persists regardless of training budget, the failure is structural, not a matter of sample efficiency
 
 ## Results
 
@@ -40,6 +40,7 @@ agent can learn this regime-conditional behavior automatically.
 | PPO Reward-Conditioned | 1.0069 ± 0.0131 | 0.996 |
 
 WAP normalized to starting price, lower is better. Below 1.0 means buying cheaper than the opening price.
+Standard deviations are computed across 5 independent training seeds.
 
 ## Structure
 ```
