@@ -1,4 +1,4 @@
-# Regime-Aware Reinforcement Learning for Optimal Trade Execution
+# An Empirical Study on Regime Awareness in Reinforcement Learning for Optimal Trade 
 
 Empirical study examining whether market regime information improves 
 reinforcement learning agents for optimal trade execution in simulated 
@@ -13,9 +13,8 @@ quantity of shares at minimal cost before a deadline. Markets shift between
 a good trader behaves differently in each. This study asks whether an RL 
 agent can learn this regime-conditional behavior automatically.
 
-## Contribution
-
-This work provides a controlled empirical study of regime-aware reinforcement learning for optimal trade execution. We evaluate whether standard PPO-based agents can exploit regime information when it is explicitly available in the state or reward. Through multi-seed experiments and ablation analysis, we show that such agents fail to reliably leverage regime signals, indicating a structural limitation rather than an issue of insufficient training or hyperparameter tuning.
+This study asks whether an RL agent can learn this regime-conditional behavior automatically.
+We conduct a controlled empirical study evaluating whether PPO-based agents can exploit regime information when introduced via state augmentation or reward conditioning, using multi-seed experiments and ablation analysis.
 
 ## Research Questions
 
