@@ -1,4 +1,4 @@
-# An Empirical Study on Regime Awareness in Reinforcement Learning for Optimal Trade 
+# An Empirical Study on Regime Awareness in Reinforcement Learning for Optimal Trade Execution
 
 Empirical study examining whether market regime information improves 
 reinforcement learning agents for optimal trade execution in simulated 
