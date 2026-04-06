@@ -70,6 +70,7 @@ pip install stable-baselines3 gymnasium numpy matplotlib
 cd src
 python baselines.py      # rule-based baselines (~1 min)
 python train.py          # all RL agents, 5 seeds each (~3 hours CPU)
+python run_curves.py            # generate learning curves
 python plot_results.py   # generate all figures
 ```
 
