@@ -1,4 +1,5 @@
 # An Empirical Study on Regime Awareness in Reinforcement Learning for Optimal Trade Execution
+[![DOI](https://zenodo.org/badge/1199326073.svg)](https://doi.org/10.5281/zenodo.19441357)
 
 Empirical study examining whether market regime information improves 
 reinforcement learning agents for optimal trade execution in simulated 
@@ -10,8 +11,7 @@ from Amrouni et al. (2022) - JP Morgan AI Research.
 The optimal execution problem: an institutional trader must buy a large 
 quantity of shares at minimal cost before a deadline. Markets shift between 
 **regimes**, bullish (rising prices) and bearish (falling prices), and 
-a good trader behaves differently in each. This study asks whether an RL 
-agent can learn this regime-conditional behavior automatically.
+a good trader behaves differently in each.
 
 This study asks whether an RL agent can learn this regime-conditional behavior automatically.
 We conduct a controlled empirical study evaluating whether PPO-based agents can exploit regime information when introduced via state augmentation or reward conditioning, using multi-seed experiments and ablation analysis.
@@ -76,6 +76,13 @@ python train.py          # all RL agents, 5 seeds each (~3 hours CPU)
 python run_curves.py     # generate learning curves
 python plot_results.py   # generate all figures
 ```
+
+## Citation
+
+If you use this code, please cite:
+
+**Code (Zenodo):**  
+DOI: https://doi.org/10.5281/zenodo.19441357
 
 ## Paper
 
