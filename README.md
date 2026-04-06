@@ -3,13 +3,13 @@
 Empirical study examining whether market regime information improves 
 reinforcement learning agents for optimal trade execution in simulated 
 limit order book markets. Built on the CTMSTOU simulation environment 
-from Amrouni et al. (2022) — JP Morgan AI Research.
+from Amrouni et al. (2022);, JP Morgan AI Research.
 
 ## Background
 
 The optimal execution problem: an institutional trader must buy a large 
 quantity of shares at minimal cost before a deadline. Markets shift between 
-**regimes** — bullish (rising prices) and bearish (falling prices) — and 
+**regimes**, bullish (rising prices) and bearish (falling prices), and 
 a good trader behaves differently in each. This study asks whether an RL 
 agent can learn this regime-conditional behavior automatically.
 
@@ -24,7 +24,7 @@ agent can learn this regime-conditional behavior automatically.
 - RL agents achieve near-perfect order completion (1.000) vs TWAP (0.850)
 - Neither state augmentation nor reward conditioning matches the hand-coded rule on cost (WAP 1.0003 vs 0.9949)
 - The regime-aware agent learns a **near-binary policy**: aggressive in bull markets, completely passive in bear markets — qualitatively wrong
-- Regime sensitivity is **initialization-dependent** — single seeds show extreme sensitivity (action 0.92→0.00 on regime flip) while multi-seed average shows near-zero sensitivity
+- Regime sensitivity is **initialization-dependent**; single seeds show extreme sensitivity (action 0.92→0.00 on regime flip) while multi-seed average shows near-zero sensitivity
 - Reward conditioning introduces training instability (WAP std 0.0131) without gains
 - Hyperparameter sensitivity analysis confirms the gap persists regardless of training budget — the failure is structural, not a matter of sample efficiency
 
@@ -39,22 +39,23 @@ agent can learn this regime-conditional behavior automatically.
 | PPO State-Aware | 1.0004 ± 0.0001 | 1.000 |
 | PPO Reward-Conditioned | 1.0069 ± 0.0131 | 0.996 |
 
-WAP normalized to starting price — lower is better. Below 1.0 means buying cheaper than the opening price.
+WAP normalized to starting price, lower is better. Below 1.0 means buying cheaper than the opening price.
 
 ## Structure
 ```
-├── models/               # Trained PPO models
 ├── figures/              # All paper figures
+├── models/               # Trained PPO models
 ├── results/              # Raw results
 ├── src/                  # All python files
+    ├── baselines.py          # TWAP, Full MO, Regime-Aware rule baselines
     ├── ctmstou.py            # CTMSTOU market simulator
     ├── environment.py        # Gymnasium execution environment
-    ├── baselines.py          # TWAP, Full MO, Regime-Aware rule baselines
-    ├── train.py              # PPO training + multi-seed evaluation
     ├── plot_results.py       # Figure generation
     ├── run_curves.py         # Generate learning curves
+    ├── train.py              # PPO training + multi-seed evaluation
 └── README.md
 ```
+
 ## Setup
 ```bash
 conda create -n regime-exec python=3.9
@@ -73,12 +74,10 @@ python plot_results.py   # generate all figures
 
 ## Paper
 
-**Full paper draft:** `paper/draft.md`
-
-Preprint forthcoming on arXiv.
+This repository accompanies a research paper (link to be added upon publication).
 
 ## Built On
 
-- [Amrouni et al. (2022)](https://arxiv.org/abs/2202.00941) — CTMSTOU driven markets (JP Morgan AI Research)
-- [Schulman et al. (2017)](https://arxiv.org/abs/1707.06347) — Proximal Policy Optimization
+- [Amrouni et al. (2022)](https://arxiv.org/abs/2202.00941) - CTMSTOU driven markets (JP Morgan AI Research)
+- [Schulman et al. (2017)](https://arxiv.org/abs/1707.06347) - Proximal Policy Optimization
 - [Stable Baselines 3](https://github.com/DLR-RM/stable-baselines3)
