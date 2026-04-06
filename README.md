@@ -13,6 +13,10 @@ quantity of shares at minimal cost before a deadline. Markets shift between
 a good trader behaves differently in each. This study asks whether an RL 
 agent can learn this regime-conditional behavior automatically.
 
+## Contribution
+
+This work provides a controlled empirical study of regime-aware reinforcement learning for optimal trade execution. We evaluate whether standard PPO-based agents can exploit regime information when it is explicitly available in the state or reward. Through multi-seed experiments and ablation analysis, we show that such agents fail to reliably leverage regime signals, indicating a structural limitation rather than an issue of insufficient training or hyperparameter tuning.
+
 ## Research Questions
 
 1. Can a learned RL policy conditioned on market regime match hand-coded regime-aware rules?
@@ -76,7 +80,7 @@ python plot_results.py   # generate all figures
 
 ## Paper
 
-This repository accompanies a research paper (link to be added upon publication).
+This repository accompanies a research paper. A preprint link will be added upon publication.
 
 ## Built On
 
