@@ -3,7 +3,7 @@
 Empirical study examining whether market regime information improves 
 reinforcement learning agents for optimal trade execution in simulated 
 limit order book markets. Built on the CTMSTOU simulation environment 
-from Amrouni et al. (2022);, JP Morgan AI Research.
+from Amrouni et al. (2022) - JP Morgan AI Research.
 
 ## Background
 
