@@ -1,25 +1,32 @@
 # Regime-Aware Reinforcement Learning for Optimal Trade Execution
 
 Empirical study examining whether market regime information improves 
-reinforcement learning agents for optimal trade execution. Built on the 
-CTMSTOU simulation environment from Amrouni et al. (2022) — JP Morgan AI 
-Research.
+reinforcement learning agents for optimal trade execution in simulated 
+limit order book markets. Built on the CTMSTOU simulation environment 
+from Amrouni et al. (2022) — JP Morgan AI Research.
 
-## Research Question
+## Background
 
-Can a PPO agent conditioned on market regime outperform hand-coded 
-regime-aware execution rules? And if regime information is available, 
-does state augmentation alone suffice, or is reward conditioning necessary?
+The optimal execution problem: an institutional trader must buy a large 
+quantity of shares at minimal cost before a deadline. Markets shift between 
+**regimes** — bullish (rising prices) and bearish (falling prices) — and 
+a good trader behaves differently in each. This study asks whether an RL 
+agent can learn this regime-conditional behavior automatically.
+
+## Research Questions
+
+1. Can a learned RL policy conditioned on market regime match hand-coded regime-aware rules?
+2. Is regime information in the state sufficient, or is reward conditioning also needed?
+3. Why does flat RL fail to exploit regime information even when it has access to it?
 
 ## Key Findings
 
 - RL agents achieve near-perfect order completion (1.000) vs TWAP (0.850)
-- Neither state augmentation nor reward conditioning matches the hand-coded 
-  regime-aware rule on execution cost (WAP 1.0003 vs 0.9949)
-- Regime sensitivity is highly initialization-dependent — different training 
-  seeds produce qualitatively different policies
-- Reward conditioning introduces instability (WAP std 0.0131) without 
-  performance gains
+- Neither state augmentation nor reward conditioning matches the hand-coded rule on cost (WAP 1.0003 vs 0.9949)
+- The regime-aware agent learns a **near-binary policy**: aggressive in bull markets, completely passive in bear markets — qualitatively wrong
+- Regime sensitivity is **initialization-dependent** — single seeds show extreme sensitivity (action 0.92→0.00 on regime flip) while multi-seed average shows near-zero sensitivity
+- Reward conditioning introduces training instability (WAP std 0.0131) without gains
+- Hyperparameter sensitivity analysis confirms the gap persists regardless of training budget — the failure is structural, not a matter of sample efficiency
 
 ## Results
 
@@ -27,10 +34,12 @@ does state augmentation alone suffice, or is reward conditioning necessary?
 |---|---|---|
 | TWAP | 1.0277 ± 0.000 | 0.850 |
 | Full Market Order | 1.0278 ± 0.000 | 1.000 |
-| Regime Aware rule | **0.9949 ± 0.000** | 0.997 |
-| PPO blind | 1.0003 ± 0.0000 | 1.000 |
-| PPO state-aware | 1.0004 ± 0.0001 | 1.000 |
-| PPO reward-conditioned | 1.0069 ± 0.0131 | 0.996 |
+| **Regime Aware Rule** | **0.9949 ± 0.000** | **0.997** |
+| PPO Blind | 1.0003 ± 0.0000 | 1.000 |
+| PPO State-Aware | 1.0004 ± 0.0001 | 1.000 |
+| PPO Reward-Conditioned | 1.0069 ± 0.0131 | 0.996 |
+
+WAP normalized to starting price — lower is better. Below 1.0 means buying cheaper than the opening price.
 
 ## Structure
 ```
@@ -46,7 +55,6 @@ does state augmentation alone suffice, or is reward conditioning necessary?
     ├── run_curves.py         # Generate learning curves
 └── README.md
 ```
-
 ## Setup
 ```bash
 conda create -n regime-exec python=3.9
@@ -58,10 +66,19 @@ pip install stable-baselines3 gymnasium numpy matplotlib
 ## Reproducing Results
 ```bash
 cd src
-python baselines.py      # reproduce rule-based baselines
-python train.py          # train all RL agents (2-3 hours on CPU)
-python plot_results.py   # generate figures
+python baselines.py      # rule-based baselines (~1 min)
+python train.py          # all RL agents, 5 seeds each (~3 hours CPU)
+python plot_results.py   # generate all figures
 ```
 
 ## Paper
+
+**Full paper draft:** `paper/draft.md`
+
 Preprint forthcoming on arXiv.
+
+## Built On
+
+- [Amrouni et al. (2022)](https://arxiv.org/abs/2202.00941) — CTMSTOU driven markets (JP Morgan AI Research)
+- [Schulman et al. (2017)](https://arxiv.org/abs/1707.06347) — Proximal Policy Optimization
+- [Stable Baselines 3](https://github.com/DLR-RM/stable-baselines3)
