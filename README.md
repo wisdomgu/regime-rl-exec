@@ -29,7 +29,7 @@ This work provides controlled empirical evidence that flat RL approaches fail to
 ## Key Findings
 
 - RL agents achieve near-perfect order completion (1.000) vs TWAP (0.850)
-- Neither state augmentation nor reward conditioning matches the hand-coded rule on cost (WAP 1.0003 vs 0.9949)
+- Neither state augmentation nor reward conditioning matches the hand-coded rule on cost (WAP 1.0003 vs 0.9950)
 - The regime-aware agent exhibits highly polarized behavior across regimes, often deviating from the qualitatively optimal strategy.
 - Regime sensitivity is **initialization-dependent**; single seeds show extreme sensitivity (action 0.92→0.00 on regime flip) while multi-seed average shows near-zero sensitivity
 - Reward conditioning introduces training instability (WAP std 0.0131) without gains
