@@ -10,9 +10,9 @@ os.makedirs('../figures', exist_ok=True)
 # ── Figure 1: Strategy comparison ────────────────────────────
 strategies = ['TWAP', 'Full MO', 'Regime\nAware Rule',
               'PPO\nBlind', 'PPO State\nAware', 'PPO Reward\nConditioned']
-wap_means  = [1.0277, 1.0278, 0.9949, 1.0003, 1.0004, 1.0069]
+wap_means  = [1.0280, 1.0278, 0.9950, 1.0003, 1.0004, 1.0069]
 wap_stds   = [0.0,    0.0,    0.0,    0.0000, 0.0001, 0.0131]
-completion = [0.850,  1.000,  0.997,  1.000,  1.000,  0.996]
+completion = [0.850,  1.000,  0.996,  1.000,  1.000,  0.996]
 colors = ['#4C72B0','#4C72B0','#2ca02c','#DD8452','#DD8452','#9467bd']
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
@@ -47,8 +47,8 @@ fig, ax = plt.subplots(figsize=(10, 5))
 x = np.arange(4)
 width = 0.35
 strats = ['TWAP', 'Regime Aware Rule', 'PPO Blind', 'PPO Regime-Aware']
-bull_wap = [1.0844, 1.0036, 1.0000, 1.0000]
-bear_wap = [0.9769, 0.9559, 1.0002, 1.0002]
+bull_wap = [1.0845, 1.0036, 1.0000, 1.0000]
+bear_wap = [0.9770, 0.9564, 1.0002, 1.0002]
 
 b1 = ax.bar(x - width/2, bull_wap, width, label='Bull days',
             color='#2ca02c', alpha=0.85, edgecolor='black')
@@ -103,8 +103,8 @@ plt.savefig('../figures/fig3_perturbation.png', dpi=200,
 print("Saved fig3")
 
 # ── Figure 4: Learning curves ─────────────────────────────────
-aware_path = 'logs/curves_regime_aware_500000.json'
-blind_path  = 'logs/curves_blind_500000.json'
+aware_path = 'curves/curves_regime_aware_500000.json'
+blind_path  = 'curves/curves_blind_500000.json'
 
 if os.path.exists(aware_path) and os.path.exists(blind_path):
     with open(aware_path) as f:
@@ -142,8 +142,9 @@ if os.path.exists(aware_path) and os.path.exists(blind_path):
                 bbox_inches='tight')
     print("Saved fig4")
 else:
-    print("Skipping fig4 — learning curve logs not found yet.")
+    print("Skipping fig4 — learning curve logs not found.")
     print(f"  Expected: {aware_path}")
     print(f"  Expected: {blind_path}")
+    print("  Run src/run_curves.py first to generate them.")
 
 print("\nAll figures saved to ../figures/")

@@ -76,6 +76,9 @@ def train_agent(regime_aware, total_timesteps=500_000, seed=42,
     else:
         model.learn(total_timesteps=total_timesteps)
 
+    os.makedirs("models", exist_ok=True)
+    model.save(f"models/{label}_steps{total_timesteps}_seed{seed}")
+
     return model, rewards_log
 
 def evaluate_agent(model, regime_aware, reward_mode='standard', n_episodes=100):
@@ -153,8 +156,8 @@ def train_and_evaluate_seeds(regime_aware, n_seeds=5, timesteps=500_000,
     print(f"  Comp: {np.mean(all_comp):.4f} ± {np.std(all_comp):.4f}")
 
     if all_curves:
-        os.makedirs('logs', exist_ok=True)
-        with open(f'logs/curves_{label}_{timesteps}.json', 'w') as f:
+        os.makedirs('curves', exist_ok=True)
+        with open(f'curves/curves_{label}_{timesteps}.json', 'w') as f:
             json.dump(all_curves, f)
 
     return all_wap, all_comp, all_curves
@@ -198,7 +201,7 @@ def train_regime_conditioned(n_seeds=5, timesteps=500_000):
 
 if __name__ == "__main__":
     os.makedirs('models', exist_ok=True)
-    os.makedirs('logs', exist_ok=True)
+    os.makedirs('curves', exist_ok=True)
 
     # Hyperparameter sensitivity (timesteps)
     print("\n=== HYPERPARAMETER SENSITIVITY ===")

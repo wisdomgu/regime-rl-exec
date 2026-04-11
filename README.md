@@ -1,4 +1,5 @@
 # An Empirical Study on Regime Awareness in Reinforcement Learning for Optimal Trade Execution
+[![DOI](https://zenodo.org/badge/1199326073.svg)](https://doi.org/10.5281/zenodo.19441357)
 
 Empirical study examining whether market regime information improves 
 reinforcement learning agents for optimal trade execution in simulated 
@@ -10,8 +11,7 @@ from Amrouni et al. (2022) - JP Morgan AI Research.
 The optimal execution problem: an institutional trader must buy a large 
 quantity of shares at minimal cost before a deadline. Markets shift between 
 **regimes**, bullish (rising prices) and bearish (falling prices), and 
-a good trader behaves differently in each. This study asks whether an RL 
-agent can learn this regime-conditional behavior automatically.
+a good trader behaves differently in each.
 
 This study asks whether an RL agent can learn this regime-conditional behavior automatically.
 We conduct a controlled empirical study evaluating whether PPO-based agents can exploit regime information when introduced via state augmentation or reward conditioning, using multi-seed experiments and ablation analysis.
@@ -35,9 +35,9 @@ We conduct a controlled empirical study evaluating whether PPO-based agents can 
 
 | Strategy | WAP (mean ± std) | Completion |
 |---|---|---|
-| TWAP | 1.0277 ± 0.000 | 0.850 |
+| TWAP | 1.0278 ± 0.000 | 0.850 |
 | Full Market Order | 1.0278 ± 0.000 | 1.000 |
-| **Regime Aware Rule** | **0.9949 ± 0.000** | **0.997** |
+| **Regime Aware Rule** | **0.9950 ± 0.000** | **0.996** |
 | PPO Blind | 1.0003 ± 0.0000 | 1.000 |
 | PPO State-Aware | 1.0004 ± 0.0001 | 1.000 |
 | PPO Reward-Conditioned | 1.0069 ± 0.0131 | 0.996 |
@@ -48,14 +48,12 @@ Standard deviations are computed across 5 independent training seeds.
 ## Structure
 ```
 ├── figures/              # All paper figures
-├── models/               # Trained PPO models
-├── results/              # Raw results
+├── curves/               # Learning curves
 ├── src/                  # All python files
     ├── baselines.py          # TWAP, Full MO, Regime-Aware rule baselines
     ├── ctmstou.py            # CTMSTOU market simulator
     ├── environment.py        # Gymnasium execution environment
     ├── plot_results.py       # Figure generation
-    ├── run_curves.py         # Generate learning curves
     ├── train.py              # PPO training + multi-seed evaluation
 └── README.md
 ```
@@ -73,9 +71,15 @@ pip install stable-baselines3 gymnasium numpy matplotlib
 cd src
 python baselines.py      # rule-based baselines (~1 min)
 python train.py          # all RL agents, 5 seeds each (~3 hours CPU)
-python run_curves.py     # generate learning curves
 python plot_results.py   # generate all figures
 ```
+
+## Citation
+
+If you use this code, please cite:
+
+**Code (Zenodo):**  
+DOI: https://doi.org/10.5281/zenodo.19441357
 
 ## Paper
 
