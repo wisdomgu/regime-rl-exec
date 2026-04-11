@@ -75,7 +75,7 @@ Expected runtime: several hours depending on CPU (multi-seed PPO training is the
 ```bash
 cd src
 python baselines.py      # rule-based baselines (~1 min)
-python train.py          # all RL agents, 5 seeds each (~3 hours CPU)
+python train.py          # all RL agents, 5 seeds each (several hours)
 python plot_results.py   # generate all figures
 ```
 
