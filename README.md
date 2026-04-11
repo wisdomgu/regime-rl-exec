@@ -16,6 +16,10 @@ a good trader behaves differently in each.
 This study asks whether an RL agent can learn this regime-conditional behavior automatically.
 We conduct a controlled empirical study evaluating whether PPO-based agents can exploit regime information when introduced via state augmentation or reward conditioning, using multi-seed experiments and ablation analysis.
 
+## Contribution
+
+This work provides controlled empirical evidence that flat RL approaches fail to learn qualitatively correct regime-dependent execution behavior, motivating hierarchical formulations.
+
 ## Research Questions
 
 1. Can a learned RL policy conditioned on market regime match hand-coded regime-aware rules?
@@ -29,7 +33,7 @@ We conduct a controlled empirical study evaluating whether PPO-based agents can 
 - The regime-aware agent exhibits highly polarized behavior across regimes, often deviating from the qualitatively optimal strategy.
 - Regime sensitivity is **initialization-dependent**; single seeds show extreme sensitivity (action 0.92→0.00 on regime flip) while multi-seed average shows near-zero sensitivity
 - Reward conditioning introduces training instability (WAP std 0.0131) without gains
-- Hyperparameter sensitivity analysis confirms the gap persists regardless of training budget, the failure is structural, not a matter of sample efficiency
+- Hyperparameter sensitivity analysis confirms the gap persists regardless of training budget, suggesting the limitation is structural rather than due to insufficient training
 
 ## Results
 
@@ -47,8 +51,8 @@ Standard deviations are computed across 5 independent training seeds.
 
 ## Structure
 ```
-├── figures/              # All paper figures
 ├── curves/               # Learning curves
+├── figures/              # All paper figures
 ├── src/                  # All python files
     ├── baselines.py          # TWAP, Full MO, Regime-Aware rule baselines
     ├── ctmstou.py            # CTMSTOU market simulator
@@ -67,12 +71,19 @@ pip install stable-baselines3 gymnasium numpy matplotlib
 ```
 
 ## Reproducing Results
+Expected runtime: several hours depending on CPU (multi-seed PPO training is the main cost).
 ```bash
 cd src
 python baselines.py      # rule-based baselines (~1 min)
 python train.py          # all RL agents, 5 seeds each (~3 hours CPU)
 python plot_results.py   # generate all figures
 ```
+
+## Notes on Artifacts
+
+Pretrained model checkpoints are not included. All results are generated 
+via controlled multi-seed experiments using the provided training pipeline, 
+ensuring full reproducibility without reliance on fixed model artifacts.
 
 ## Citation
 
