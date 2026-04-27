@@ -94,7 +94,7 @@ DOI: https://doi.org/10.5281/zenodo.19441357
 
 ## Paper
 
-This repository accompanies a research paper. A preprint link will be added upon publication.
+Preprint: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6559598
 
 ## Built On
 
