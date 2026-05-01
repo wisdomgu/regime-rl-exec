@@ -1,7 +1,7 @@
-# An Empirical Study on Regime Awareness in Reinforcement Learning for Optimal Trade Execution
+# Regime Awareness in RL for Optimal Trade Execution: A Simulation Study
 [![DOI](https://zenodo.org/badge/1199326073.svg)](https://doi.org/10.5281/zenodo.19441357)
 
-Empirical study examining whether market regime information improves 
+A simulation study examining whether market regime information improves 
 reinforcement learning agents for optimal trade execution in simulated 
 limit order book markets. Built on the CTMSTOU simulation environment 
 from Amrouni et al. (2022) - JP Morgan AI Research.
