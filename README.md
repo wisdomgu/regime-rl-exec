@@ -100,6 +100,7 @@ https://papers.ssrn.com/abstract=6559598
   author={Garg, Satish},
   journal={SSRN Electronic Journal},
   year={2026},
+  doi = {10.5281/zenodo.19441357},
   url={https://papers.ssrn.com/abstract=6559598}
 }
 ```
