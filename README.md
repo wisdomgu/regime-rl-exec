@@ -1,4 +1,5 @@
 # Regime Awareness in RL for Optimal Trade Execution: A Simulation Study
+
 [![DOI](https://zenodo.org/badge/1199326073.svg)](https://doi.org/10.5281/zenodo.19441357)
 
 A simulation study examining whether market regime information improves 
@@ -87,14 +88,21 @@ ensuring full reproducibility without reliance on fixed model artifacts.
 
 ## Citation
 
-If you use this code, please cite:
+If you use this code or find this work useful, please cite:
 
-**Code (Zenodo):**  
-DOI: https://doi.org/10.5281/zenodo.19441357
+### Paper (SSRN Preprint)
+Garg, Satish. *Regime Awareness in RL for Optimal Trade Execution: A Simulation Study*. SSRN, 2026.  
+https://papers.ssrn.com/abstract=6559598
 
-## Paper
-
-Preprint: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6559598
+```bibtex
+@article{garg2026regime,
+  title={Regime Awareness in Reinforcement Learning for Optimal Trade Execution: A Simulation Study},
+  author={Garg, Satish},
+  journal={SSRN Electronic Journal},
+  year={2026},
+  url={https://papers.ssrn.com/abstract=6559598}
+}
+```
 
 ## Built On
 
